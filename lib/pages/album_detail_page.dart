@@ -62,13 +62,12 @@ class AlbumDetailPage extends StatelessWidget {
                     height: 150,
                     width: 150,
                     decoration: BoxDecoration(
-                      // image: DecorationImage(
-                      //   image: NetworkImage(item.productUrl!),
-                      //   fit: BoxFit.cover
-                      // ),
+                      image: DecorationImage(
+                        image: NetworkImage(item.baseUrl!),
+                        fit: BoxFit.cover
+                      ),
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: Image.network(item.baseUrl!),
                   ),
                 )
                 .toList(),
