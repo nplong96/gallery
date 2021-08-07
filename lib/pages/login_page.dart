@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:gallery/controllers/login_controller.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+
+import 'package:gallery/controllers/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
   final loginController = Get.put(LoginController());
@@ -48,37 +49,37 @@ class LoginPage extends StatelessWidget {
 
   Widget _buildLoginButton() {
     return GestureDetector(
-          onTap: () {
-            loginController.onSingIn();
-          },
-          child: Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-              vertical: 5,
+      onTap: () {
+        loginController.onSingIn();
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 10,
+          vertical: 5,
+        ),
+        decoration: BoxDecoration(
+          color: Colors.lightGreen,
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              "assets/icons/ic_gg.png",
+              height: 25,
             ),
-            decoration: BoxDecoration(
-              color: Colors.lightGreen,
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(
-                  "assets/icons/ic_gg.png",
-                  height: 25,
-                ),
-                SizedBox(width: 10),
-                Text(
-                  'Log in with Google',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
-                )
-              ],
-            ),
-          ),
-        );
+            SizedBox(width: 10),
+            Text(
+              'Log in with Google',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

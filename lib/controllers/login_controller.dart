@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginController extends GetxController {
+  static LoginController get to => Get.find();
+
   GoogleSignInAccount? account;
   final GoogleSignIn _googleSignIn = GoogleSignIn(
     scopes: <String>[
@@ -16,7 +18,7 @@ class LoginController extends GetxController {
   Future<void> onSingIn() async {
     account = await _googleSignIn.signIn();
     if (account != null) {
-      Get.off(HomePage());
+      Get.to(() => HomePage());
     } else {
       Get.snackbar(
         "Error",
@@ -30,4 +32,6 @@ class LoginController extends GetxController {
       );
     }
   }
+
+  Future<void> signOut() => _googleSignIn.disconnect();
 }
